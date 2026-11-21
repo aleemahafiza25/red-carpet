@@ -794,7 +794,7 @@ body {
 
 .date-heading {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
@@ -910,7 +910,7 @@ body {
   }
 
   .date-heading {
-    top: 10%;
+    top: 15%;
     width: 88%;
   }
 

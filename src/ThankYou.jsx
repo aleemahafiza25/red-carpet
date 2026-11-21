@@ -52,7 +52,7 @@ function ThankYou() {
         </p>
 
         <div className="thankyou-names reveal-item">
-          Ayaan &amp; Zara
+          Hamza &amp; Shifa
         </div>
 
         <div className="thankyou-bottom-ornament reveal-item">

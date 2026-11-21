@@ -1,0 +1,1850 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wedding-site {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.opening-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: #27090b;
+  overflow: hidden;
+}
+
+.opening-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.tap-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  color: #f5dfb9;
+}
+
+.tap-text {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-shadow: 0 2px 10px #000;
+}
+
+.tap-decoration {
+  font-size: 27px;
+}
+
+/* FIRST INVITATION PAGE */
+
+
+.invitation-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: #27090b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Blurred background fills empty space */
+
+.invitation-background {
+  position: absolute;
+  inset: -20px;
+  background-image: url('/first-page-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(12px) brightness(0.55);
+  transform: scale(1.05);
+}
+
+/* Complete original image */
+
+.invitation-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Names and text */
+
+.invitation-content {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 70%;
+  max-width: 650px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(15px, 3vh, 30px);
+}
+
+
+.top-ornament,
+.bottom-ornament {
+  font-size: clamp(20px, 4vw, 30px);
+  color: #c49b68;
+}
+
+.invitation-subtitle {
+  font-size: clamp(10px, 1.5vw, 15px);
+  letter-spacing: clamp(2px, 0.5vw, 5px);
+  line-height: 1.8;
+  color: #e3c18f;
+}
+
+.invitation-content h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(45px, 8vw, 90px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #f0d3a4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.ampersand {
+  font-size: 0.65em;
+  font-style: italic;
+  margin: 5px 0;
+}
+
+.invitation-description {
+  font-size: clamp(10px, 1.5vw, 15px);
+  letter-spacing: clamp(2px, 0.4vw, 4px);
+  line-height: 2;
+  color: #e3c18f;
+}
+
+/* TABLETS */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .invitation-content {
+    width: 72%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 599px) {
+  .invitation-page {
+    background-size: auto 100%;
+  }
+
+  .invitation-content {
+    width: 72%;
+    top: 52%;
+    gap: 18px;
+  }
+
+  .invitation-content h1 {
+    font-size: clamp(43px, 10vw, 65px);
+  }
+
+  .invitation-subtitle,
+  .invitation-description {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}
+
+
+
+/* SCROLLABLE INVITATION PAGES */
+
+.wedding-site {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.invitation-pages {
+  width: 100%;
+}
+
+/* COUPLE PAGE */
+
+.couple-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 4.5% 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/couple-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.couple-paper {
+  width: 100%;
+  max-width: 650px;
+  min-height: 85vh;
+  padding: 125px 7% 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #582b27;
+}
+
+/* HEADING */
+
+.couple-paper h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(30px, 5vw, 44px);
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+/* PORTRAITS */
+
+.couple-photos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.couple-photo {
+  width: 44%;
+  aspect-ratio: 0.66;
+  overflow: hidden;
+  border: 2px solid #a98763;
+  border-radius: 50% 50% 3px 3px / 20% 20% 3px 3px;
+  background: #c5a77e;
+  padding: 3px;
+}
+
+.couple-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* NAMES */
+
+.couple-names {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 4vw, 30px);
+  margin-top: 30px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(23px, 4vw, 34px);
+  font-style: italic;
+  color: #662e2c;
+}
+
+.couple-ampersand {
+  font-size: 0.85em;
+}
+
+/* OUR STORY */
+
+.story-heading {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.story-heading span {
+  flex: 1;
+  height: 1px;
+  background: #a98763;
+}
+
+.story-heading h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(23px, 4vw, 30px);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.couple-story {
+  max-width: 380px;
+  margin-top: 18px;
+  font-family: Georgia, serif;
+  font-size: clamp(13px, 2vw, 16px);
+  line-height: 1.55;
+  color: #50332d;
+}
+
+.story-ornament {
+  margin-top: 25px;
+  color: #986b48;
+  font-size: 22px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+  .couple-page {
+    min-height: 100svh;
+    padding: 3% 2%;
+  }
+
+  .couple-paper {
+    min-height: 90svh;
+    padding: 45px 7% 30px;
+  }
+
+  .couple-paper h2 {
+    margin-bottom: 18px;
+  }
+
+  .couple-photos {
+    gap: 9px;
+  }
+
+  .couple-photo {
+    width: 46%;
+  }
+
+  .couple-names {
+    margin-top: 20px;
+  }
+
+  .story-heading {
+    margin-top: 23px;
+  }
+
+  .couple-story {
+    margin-top: 14px;
+  }
+}
+
+@media (max-height: 650px) {
+  .couple-paper {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+
+  .couple-paper h2 {
+    margin-bottom: 18px;
+  }
+
+  .couple-photo {
+    max-height: 210px;
+  }
+}
+
+
+/* CONTINUOUS PAGE LAYOUT */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.wedding-site,
+.invitation-pages {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow-x: clip;
+}
+
+.invitation-page,
+.couple-page {
+  margin: 0 !important;
+  border: 0;
+  display: flex;
+}
+
+/* PAGE 1 */
+
+.invitation-page {
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PAGE 2 */
+
+.couple-page {
+  width: 100%;
+  min-height: 100svh;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Keep parchment spacing inside the page */
+
+.couple-paper {
+  margin: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .invitation-page {
+    min-height: 100svh;
+  }
+
+  .couple-page {
+    padding: 0;
+  }
+}
+
+
+/* FIRST PAGE FULL-SCREEN BACKGROUND */
+
+.invitation-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #27090b;
+}
+
+/* Background image fills the complete page */
+
+.invitation-bg-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keep invitation text above the artwork */
+
+.invitation-content {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 70%;
+  max-width: 650px;
+  text-align: center;
+}
+
+.couple-paper {
+  width: 100%;
+  max-width: 650px;
+  min-height: 85vh;
+  padding: 50px 7% 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #582b27;
+}
+
+
+.couple-photos {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1.12;
+}
+
+.couple-frame-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.portrait-image {
+  position: absolute;
+  top: 22%;
+  width: 39%;
+  height: 53%;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 70px 70px 0 0;
+  overflow: hidden;
+}
+
+.groom-image {
+  left: 8%;
+}
+
+.bride-image {
+  right: 8%;
+}
+
+.portrait-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .couple-photos {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  /* Bring names closer to the flower */
+  .couple-names {
+    margin-top: 0px;
+    font-size: 29px;
+  }
+
+  /* Move Our Story upwards */
+  .story-heading {
+    margin-top: 2px;
+  }
+
+  /* Bring paragraph closer to heading */
+  .couple-story {
+    margin-top: 1px;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  /* Final decorative divider */
+  .story-ornament {
+    margin-top: 1px;
+  }
+}
+
+
+
+/* FINAL COUPLE PAGE SPACING FIX */
+
+@media (max-width: 600px) {
+
+  .couple-names {
+    margin-top: -70px !important;
+    position: relative;
+    z-index: 3;
+  }
+
+  .story-heading {
+    margin-top: 20px !important;
+  }
+
+  .couple-story {
+    margin-top: 12px !important;
+  }
+
+  .story-ornament {
+    margin-top: 18px !important;
+  }
+
+}
+
+
+/* @media (max-width: 600px) {
+  .portrait-image {
+    border-radius: 55px 55px 0 0;
+  }
+} */
+
+
+/* PAGE 3 - FORMAL INVITATION */
+
+.formal-invitation {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-image: url('/invite-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 10%;
+  box-sizing: border-box;
+}
+
+.formal-content {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  color: #653333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formal-top-ornament,
+.formal-bottom-ornament {
+  color: #956c43;
+  font-size: 23px;
+}
+
+.formal-content h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(32px, 6vw, 43px);
+  font-style: italic;
+  font-weight: 500;
+  margin: 24px 0 32px;
+}
+
+.formal-blessing {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(19px, 3.5vw, 23px);
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.formal-message {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(18px, 3.5vw, 22px);
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.formal-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(32px, 7vw, 43px);
+  font-weight: 400;
+  margin: 0 0 25px;
+}
+
+@media (max-width: 600px) {
+  .formal-invitation {
+    padding: 30px 9%;
+  }
+
+  .formal-content h2 {
+    margin: 20px 0 25px;
+  }
+
+  .formal-blessing {
+    margin-bottom: 20px;
+  }
+
+  .formal-message {
+    margin-bottom: 22px;
+  }
+}
+
+
+/* FORMAL INVITATION TYPOGRAPHY */
+
+.formal-content {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  color: #663b35;
+  text-align: center;
+}
+
+/* You are Invited */
+
+.formal-content h2 {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: clamp(29px, 6vw, 36px);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin: 20px 0 32px;
+}
+
+/* Blessing */
+
+.formal-blessing {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: clamp(18px, 4vw, 21px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  margin-bottom: 22px;
+}
+
+/* Invitation message */
+
+.formal-message {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: clamp(18px, 4vw, 21px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+  margin-bottom: 23px;
+}
+
+/* Bride and groom names */
+
+.formal-names {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: clamp(29px, 6vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  color: #713b35;
+  margin: 0 0 22px;
+}
+
+.formal-content h2 {
+  font-size: clamp(36px, 7vw, 44px);
+}
+
+.formal-blessing {
+  font-size: clamp(22px, 4.5vw, 25px);
+  line-height: 1.4;
+}
+
+.formal-message {
+  font-size: clamp(21px, 4.5vw, 24px);
+  line-height: 1.4;
+}
+
+.formal-names {
+  font-size: clamp(37px, 7vw, 44px);
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+/* =================================
+   PAGE 4 - WEDDING DATE REVEAL
+================================= */
+
+.date-reveal-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background-image: url('/date-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.date-heading {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  text-align: center;
+  z-index: 3;
+}
+
+.date-heading h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(34px, 7vw, 45px);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #71352e;
+}
+
+/* =================================
+   SCRATCH CARD
+================================= */
+
+.scratch-card {
+  position: absolute;
+
+  /* Align with the inner burgundy frame */
+  top: 32%;
+  left: 1%;
+  width: 68%;
+  height: 25%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Date underneath the pattern */
+
+.revealed-date {
+  position: absolute;
+  inset: 0;
+  border-radius: 37px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  
+  text-align: center;
+  color: #71352e;
+  background: #e9cf9e;
+
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.revealed-date-label {
+  font-size: clamp(12px, 2.5vw, 16px);
+  letter-spacing: 2px;
+}
+
+.revealed-date strong {
+  font-size: clamp(28px, 6vw, 42px);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.revealed-date-ornament {
+  color: #a17848;
+  font-size: 23px;
+}
+
+/* =================================
+   PASHMINA SCRATCH LAYER
+================================= */
+
+.pashmina-canvas {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  cursor: crosshair;
+  touch-action: none;
+  z-index: 2;
+}
+
+/* =================================
+   INSTRUCTION BELOW CARD
+================================= */
+
+.scratch-hint {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+
+  text-align: center;
+
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(17px, 3.5vw, 21px);
+  font-style: italic;
+
+  color: #71352e;
+}
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 600px) {
+
+  .date-reveal-page {
+    min-height: 600px;
+  }
+
+  .date-heading {
+    top: 20%;
+    width: 88%;
+  }
+
+  .date-heading h2 {
+    font-size: clamp(29px, 8vw, 37px);
+  }
+
+  .scratch-card {
+    top: 32%;
+    left: 16%;
+    width: 68%;
+    height: 25%;
+  }
+
+  .scratch-hint {
+    top: 60%;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+}
+
+/* SHORT MOBILE SCREENS */
+
+@media (max-height: 650px) {
+  .date-heading {
+    top: 17%;
+  }
+
+  .scratch-card {
+    top: 30%;
+    height: 27%;
+  }
+
+  .scratch-hint {
+    top: 59%;
+  }
+}
+
+
+/* SCRATCH CARD: ALIGN INSIDE THE ORNATE FRAME */
+
+.scratch-card {
+  position: absolute;
+  top: 35.5%;
+  left: 12%;
+  width: 76%;
+  height: 40%;
+
+  overflow: hidden;
+  border-radius: 0;
+  z-index: 2;
+}
+
+/* Pashmina texture */
+
+.pashmina-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+  z-index: 2;
+}
+
+/* Wedding date underneath */
+
+.revealed-date {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: #e9cf9e;
+  text-align: center;
+  color: #71352e;
+}
+
+/* Mobile positioning */
+
+@media (max-width: 600px) {
+  .scratch-card {
+    top: 35.5%;
+    left: 12%;
+    width: 76%;
+    height: 40%;
+  }
+}
+
+.scratch-card {
+  position: absolute;
+  top: 35.5%;
+  left: 12%;
+  width: 76%;
+  height: 30%;
+  overflow: hidden;
+  border-radius: 0;
+  z-index: 2;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .scratch-card {
+    top: 35%;
+    left: 11%;
+    width: 77%;
+    height: 31.5%;
+  }
+}
+
+
+/* HIBISCUS PETAL CELEBRATION */
+
+.petal-rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hibiscus-petal {
+  position: absolute;
+  top: -45px;
+
+  width: 19px;
+  height: 29px;
+
+  background: linear-gradient(
+    135deg,
+    #e77a70,
+    #a52c32 55%,
+    #65151f
+  );
+
+  border-radius: 85% 10% 75% 15%;
+
+  opacity: 0;
+  transform: rotate(var(--rotation));
+
+  animation: hibiscus-fall linear forwards;
+}
+
+@keyframes hibiscus-fall {
+  0% {
+    transform:
+      translate3d(0, -40px, 0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.95;
+  }
+
+  50% {
+    transform:
+      translate3d(var(--drift), 50vh, 0)
+      rotate(240deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translate3d(calc(var(--drift) * -1), 110vh, 0)
+      rotate(600deg);
+    opacity: 0;
+  }
+}
+
+.scratch-hint {
+  position: absolute;
+  top: 73%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+
+  font-family: 'EB Garamond', serif;
+  font-size: 23px;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #71352e;
+}
+
+@media (max-width: 600px) {
+  .scratch-hint {
+    top: 73%;
+    font-size: 22px;
+  }
+}
+
+
+/* COMPACT WEDDING COUNTDOWN */
+
+.countdown-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 35px 0;
+  background: #2b090b;
+}
+
+.countdown-carpet {
+  width: min(100%, 420px);
+  min-height: 260px;
+  padding: 35px 25px;
+
+  background-image: url('/countdown-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-paper {
+  width: 88%;
+  max-width: 340px;
+  padding: 22px 12px;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  text-align: center;
+  color: #71352e;
+}
+
+.countdown-paper h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 500;
+  margin: 10px 0 20px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.countdown-box {
+  background: #f7e8ce;
+  border: 1px solid #b58a64;
+  padding: 8px 2px;
+}
+
+.countdown-box strong {
+  font-family: 'EB Garamond', serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.countdown-box span {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+}
+
+.countdown-ornament,
+.countdown-bottom-ornament {
+  color: #946c42;
+  font-size: 18px;
+}
+
+.countdown-bottom-ornament {
+  margin-top: 12px;
+}
+
+@media (max-width: 420px) {
+  .countdown-section {
+    padding: 20px 0;
+  }
+
+  .countdown-carpet {
+    min-height: 240px;
+    padding: 30px 20px;
+  }
+}
+
+/* REMOVE ALL SPACE BETWEEN INVITATION PAGES */
+
+.invitation-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.invitation-pages > section {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Remove default section spacing */
+.date-reveal-page,
+.formal-invitation,
+.countdown-section,
+.couple-page {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Countdown section */
+.countdown-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+/* =================================
+   PAGE 6 - OTHER FUNCTIONS
+================================= */
+
+.functions-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+
+  background-image: url('/functions-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.functions-content {
+  width: 82%;
+  max-width: 400px;
+  padding: 0;
+  color: #642d29;
+  text-align: center;
+}
+
+.functions-content h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(31px, 7vw, 40px);
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0 35px;
+}
+
+/* FUNCTION LIST */
+
+.functions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* BURGUNDY ICON MEDALLIONS */
+
+.function-icon {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+
+  background: #701b20;
+  border: 2px solid #bd9254;
+  border-radius: 38%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e8c98e;
+}
+
+/* FUNCTION TEXT */
+
+.function-details {
+  min-width: 0;
+}
+
+.function-details h3 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(23px, 5vw, 29px);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 3px;
+}
+
+.function-details p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(14px, 3vw, 17px);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .functions-content {
+    width: 82%;
+  }
+
+  .functions-content h2 {
+    margin-bottom: 29px;
+  }
+
+  .functions-list {
+    gap: 22px;
+  }
+
+  .function-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .function-item {
+    gap: 13px;
+  }
+}
+
+
+/* =================================
+   PAGE 8 - VENUE & LOCATION
+================================= */
+
+.venue-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+
+  background-image: url('/venue-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.venue-content {
+  width: 84%;
+  max-width: 400px;
+  text-align: center;
+  color: #632d27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADING */
+
+.venue-heading {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(30px, 7vw, 40px);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 25px;
+}
+
+/* LOCATION ICON */
+
+.venue-pin {
+  width: 43px;
+  height: 43px;
+  border: 1.5px solid #b38a50;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #70201e;
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+/* VENUE NAME */
+
+.venue-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(27px, 6vw, 34px);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 3px;
+}
+
+.venue-address {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  margin: 0 0 22px;
+}
+
+/* MAP */
+
+.venue-map {
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+  border: 4px solid #fff0d5;
+  border-radius: 12px;
+  box-shadow: 0 3px 9px rgba(65, 30, 15, 0.2);
+  margin-bottom: 23px;
+}
+
+.venue-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* DIRECTIONS BUTTON */
+
+.directions-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 11px 27px;
+  border-radius: 40px;
+
+  background: #70201e;
+  border: 1px solid #c59b60;
+
+  color: #f5dfb7;
+  text-decoration: none;
+
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+
+  box-shadow: 0 3px 7px rgba(60, 20, 15, 0.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .venue-content {
+    width: 82%;
+  }
+
+  .venue-heading {
+    margin-bottom: 22px;
+  }
+
+  .venue-map {
+    height: 125px;
+  }
+
+  .directions-button {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+}
+
+.venue-map {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border: 4px solid #fff0d5;
+  border-radius: 12px;
+  box-shadow: 0 3px 9px rgba(65, 30, 15, 0.2);
+  margin-bottom: 23px;
+}
+
+@media (max-width: 600px) {
+  .venue-map {
+    height: 165px;
+  }
+}
+
+
+/* =================================
+   FINAL PAGE - THANK YOU
+================================= */
+
+.thankyou-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+
+  background-image: url('/thankyou-bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* CONTENT INSIDE THE BURGUNDY ARCH */
+
+.thankyou-content {
+  position: relative;
+  width: 76%;
+  max-width: 340px;
+  margin-top: 2%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  color: #e8c58b;
+}
+
+/* ORNAMENTS */
+
+.thankyou-ornament,
+.thankyou-bottom-ornament {
+  font-family: 'EB Garamond', serif;
+  font-size: 23px;
+  color: #d8b16f;
+}
+
+/* HEADING */
+
+.thankyou-content h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 9vw, 52px);
+  font-weight: 400;
+  margin: 12px 0 28px;
+  color: #f0d29a;
+}
+
+/* MESSAGE */
+
+.thankyou-message {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(16px, 3.8vw, 19px);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  color: #e8cda0;
+}
+
+/* COUPLE NAMES */
+
+.thankyou-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(29px, 7vw, 39px);
+  color: #edcc8e;
+  margin-top: 15px;
+}
+
+/* BOTTOM ORNAMENT */
+
+.thankyou-bottom-ornament {
+  margin-top: 20px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+  .thankyou-content {
+    width: 76%;
+  }
+
+  .thankyou-content h2 {
+    margin-bottom: 23px;
+  }
+
+  .thankyou-message {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* SHORT SCREENS */
+
+@media (max-height: 650px) {
+  .thankyou-content {
+    transform: scale(0.85);
+  }
+}
+
+
+.thankyou-content .reveal-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.thankyou-visible .thankyou-ornament {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.thankyou-visible .thankyou-heading {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.thankyou-visible .thankyou-message:nth-of-type(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.9s;
+}
+
+.thankyou-visible .thankyou-message:nth-of-type(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.3s;
+}
+
+.thankyou-visible .thankyou-names {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.7s;
+}
+
+.thankyou-visible .thankyou-bottom-ornament {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 2.1s;
+}
+
+/* Reusable scroll reveal animation */
+
+.reveal-container > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal each text element one after another */
+
+.reveal-visible > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.reveal-visible > *:nth-child(2) {
+  transition-delay: 0.5s;
+}
+
+.reveal-visible > *:nth-child(3) {
+  transition-delay: 0.9s;
+}
+
+.reveal-visible > *:nth-child(4) {
+  transition-delay: 1.3s;
+}
+
+.reveal-visible > *:nth-child(5) {
+  transition-delay: 1.7s;
+}
+
+.reveal-visible > *:nth-child(6) {
+  transition-delay: 2.1s;
+}
+
+.reveal-visible > *:nth-child(7) {
+  transition-delay: 2.5s;
+}
+
+
+/* =================================
+   FIRST PAGE: ROYAL INVITATION
+================================= */
+
+.invitation-content {
+  top: 49% !important;
+  width: 82%;
+  max-width: 650px;
+  gap: clamp(13px, 2.2vh, 22px);
+}
+
+/* BISMILLAH */
+
+.bismillah {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 500;
+  line-height: 1.8;
+  color: #f1d19a;
+  direction: rtl;
+  margin-bottom: 2px;
+}
+
+/* TOP ORNAMENT */
+
+.top-ornament {
+  font-size: 25px;
+  color: #d4a85e;
+}
+
+/* FAMILY INVITATION */
+
+.invitation-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(11px, 2vw, 15px);
+  letter-spacing: 3px;
+  line-height: 1.8;
+  color: #e8c991;
+}
+
+/* COUPLE NAMES */
+
+.invitation-content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 11vw, 76px);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #f4d8a8;
+  margin: 5px 0;
+}
+
+.invitation-content .ampersand {
+  font-size: 0.55em;
+  margin: 7px 0;
+}
+
+/* INVITATION MESSAGE */
+
+.invitation-description {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 2vw, 15px);
+  letter-spacing: 3px;
+  line-height: 2;
+  color: #e8c991;
+}
+
+/* BOTTOM ORNAMENT */
+
+.bottom-ornament {
+  font-size: 25px;
+  color: #d4a85e;
+}
+
+/* MOBILE */
+
+@media (max-width: 599px) {
+  .invitation-content {
+    width: 84%;
+    top: 49% !important;
+    gap: 13px;
+  }
+
+  .bismillah {
+    font-size: 25px;
+  }
+
+  .invitation-content h1 {
+    font-size: clamp(51px, 13vw, 65px);
+  }
+
+  .invitation-subtitle,
+  .invitation-description {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+  }
+}
+
+/* FIRST PAGE SCROLL INDICATOR */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+
+  color: #e8c58b;
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  font-size: 25px;
+  line-height: 1;
+  animation: arrow-down 1.3s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+@keyframes arrow-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* WEDDING DATE TEXT SIZE */
+
+.revealed-date-label {
+  font-size: clamp(15px, 3vw, 19px);
+  letter-spacing: 3px;
+}
+
+.revealed-date strong {
+  font-size: clamp(36px, 8vw, 50px);
+  font-weight: 500;
+}

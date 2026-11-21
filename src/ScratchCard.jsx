@@ -13,21 +13,37 @@ function ScratchCard() {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
-
     const pattern = new Image();
+    let imageLoaded = false;
+
+    const resizeCanvas = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const dpr = window.devicePixelRatio || 1;
+
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      if (imageLoaded) {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(pattern, 0, 0, rect.width, rect.height);
+      }
+    };
 
     pattern.onload = () => {
-      ctx.drawImage(pattern, 0, 0, rect.width, rect.height);
+      imageLoaded = true;
+      resizeCanvas();
     };
 
     pattern.src = '/pashmina-scratch.png';
 
+    const observer = new ResizeObserver(resizeCanvas);
+    observer.observe(canvas);
+
+    return () => observer.disconnect();
   }, []);
 
   const scratch = (e) => {
@@ -49,8 +65,9 @@ function ScratchCard() {
 
   const checkReveal = () => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    if (!canvas) return;
 
+    const ctx = canvas.getContext('2d');
     const pixels = ctx.getImageData(
       0, 0, canvas.width, canvas.height
     ).data;
@@ -68,8 +85,6 @@ function ScratchCard() {
 
   return (
     <div className="scratch-card">
-
-      {/* Date underneath */}
       <div className="revealed-date">
         <span className="revealed-date-label">
           OUR WEDDING DATE
@@ -82,27 +97,22 @@ function ScratchCard() {
         </span>
       </div>
 
-      {/* Burgundy Pashmina layer */}
       {!revealed && (
         <canvas
           ref={canvasRef}
           className="pashmina-canvas"
-
           onPointerDown={(e) => {
             e.currentTarget.setPointerCapture(e.pointerId);
             scratching.current = true;
             scratch(e);
           }}
-
           onPointerMove={(e) => {
             if (scratching.current) scratch(e);
           }}
-
           onPointerUp={() => {
             scratching.current = false;
             checkReveal();
           }}
-
           onPointerCancel={() => {
             scratching.current = false;
             checkReveal();
@@ -110,7 +120,6 @@ function ScratchCard() {
         />
       )}
 
-      {/* Falling hibiscus petals */}
       {revealed && (
         <div className="petal-rain" aria-hidden="true">
           {Array.from({ length: 36 }, (_, i) => (
@@ -128,7 +137,6 @@ function ScratchCard() {
           ))}
         </div>
       )}
-
     </div>
   );
 }
